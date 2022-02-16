@@ -12,7 +12,8 @@ namespace Delegates
         {
             Console.WriteLine("Welcome to Delegates Program");
             Console.WriteLine("1.SingleCastDelegate" +
-                              "\n2.Exit");
+                              "\n2.MultiCastDelegate" +
+                              "\n3.Exit");
             bool flag = true;
             while (flag)
             {
@@ -32,6 +33,16 @@ namespace Delegates
                         break;
 
                     case 2:
+                        MultiCastDelegate multiCastDelegate = new MultiCastDelegate();
+                        MultiCast multiCast = new MultiCast(multiCastDelegate.RectangleArea);
+                        multiCast += multiCastDelegate.RectanglePerimeter;
+                        multiCast(5, 6);
+
+                        multiCast -= multiCastDelegate.RectanglePerimeter;
+                        multiCast(4, 3);
+                        break;
+
+                    case 3:
                         flag= false;
                         break;
 
